@@ -16,7 +16,13 @@ const createWeatherHTML = currentDay => {
           <h2>Condition: ${currentDay.weather[0].description}</h2>
         <img src="https://openweathermap.org/img/wn/${
           currentDay.weather[0].icon
-        }@2x.png">`;
+        }@2x.png">
+        <h2>Feels like: ${kelvinToFahrenheit(
+          currentDay.main.feels_like
+        )}&deg;F</h2>
+        <h2>Minimum temperature: ${kelvinToFahrenheit(
+          currentDay.main.temp_min
+        )}&deg;F</h2>`;
 };
 
 const kelvinToFahrenheit = k => (((k - 273.15) * 9) / 5 + 32).toFixed(0);
