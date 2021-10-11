@@ -60,6 +60,8 @@ const getForecast = async () => {
 
 // Render functions
 const renderVenues = venues => {
+  shuffle(venues);
+
   $venueDivs.forEach(($venue, index) => {
     const venue = venues[index];
     const venueIcon = venue.categories[0].icon;
@@ -71,6 +73,7 @@ const renderVenues = venues => {
     );
     $venue.append(venueContent);
   });
+
   $destination.append(`<h2>${venues[0].location.city}</h2>`);
 };
 
